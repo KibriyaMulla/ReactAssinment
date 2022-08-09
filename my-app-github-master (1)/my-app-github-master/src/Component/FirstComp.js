@@ -1,10 +1,14 @@
-const FirstComp = () => {
-  console.log("First Component Reloaded...");
-  return (
-    <div>
-      <p>First Component</p>
-    </div>
-  );
+const FirstComponent   = ()=>{
+
+    return (
+
+        <div>
+        <p>FirstComponent</p>
+        <p> Hello..</p>
+        </div>
+
+        
+    );
 };
 
-export default FirstComp;
+export default FirstComponent

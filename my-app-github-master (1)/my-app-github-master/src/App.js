@@ -1,25 +1,37 @@
-import "./App.css";
-import FirstComp from "./Component/FirstComp";
-import SecComp from "./Component/SecComp";
-import { Link } from "react-router-dom";
-
-// props, state
+import './App.css';
+import FirstComponent from './Component/FirstComponent';
+import SecondComponent from './SecondComponent';
+import { useEffect, useState } from 'react';
 function App() {
-  // setname("QWE");
-  // const [state, setstate] = useState(initialState);
+  const [name, setName] = useState("Kibriya");
+
+  const Update = () => {
+    setName("Riya");
+  };
+  useEffect = (() => {
+    // console.log(name)
+    fetch("https://jsonplaceholder.typicode.com/photos")
+      .then((resp) => resp.json())
+      .then((response) => console.log(response));
+    console.log(name);
+
+
+  }, [name]);
+
   return (
     <div className="App">
-      <nav
-        style={{
-          borderBottom: "solid 1px",
-          paddingBottom: "1rem",
-        }}
-      >
-        <Link to="/invoices">Invoices</Link>
-      </nav>
-      <FirstComp />
-      <SecComp />
-      <p>Root -> App -> (First,(Second->Third))</p>
+      <header className="App-header">
+
+        <FirstComponent />
+        <SecondComponent title={name} />
+
+        <button onClick={Update}>Update Name</button>
+        <button onClick={() => {
+          console.log("Button Clicked")
+        }}> Test
+
+        </button>
+      </header>
     </div>
   );
 }
